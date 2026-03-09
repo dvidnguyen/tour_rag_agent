@@ -1,0 +1,7 @@
+langchain==0.1.16
+langchain-google-genai==1.0.3
+langchain-community==0.0.34
+faiss-cpu==1.10.0
+gspread==6.1.0        # Để gọi Google Sheets API
+oauth2client==4.1.3   # Phục vụ xác thực Google Sheets
+python-dotenv==1.0.1  
