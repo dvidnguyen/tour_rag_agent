@@ -9,7 +9,7 @@ class TourDataLoader:
         Khởi tạo kết nối với Google Sheets API
         """
         self.sheet_identifier = sheet_name_or_url
-        print("Đang xác thực với Google Sheets bằng credentials.json...")
+        print("Authenticating with credentials.json...")
         
         # Định nghĩa các quyền (scopes) cần thiết để truy cập Google Sheets và Drive
         scopes = [
@@ -46,6 +46,7 @@ class TourDataLoader:
         """
         documents = []
         for row in raw_records:
+            # Bỏ qua các dòng trống (nếu có)
             if not row.get("Mã Tour"): 
                 continue
                 
@@ -63,14 +64,14 @@ class TourDataLoader:
             
         return documents
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
    
-    SHEET_URL = "ĐIỀN_LINK_GOOGLE_SHhttps://docs.google.com/spreadsheets/d/15Qk8yHoRSkem1-Iz-iMcu7UzCI_h3OtZ_1x8gRGYFbY/edit?gid=0#gid=0EET_CỦA_BẠN_VÀO_ĐÂY" 
+#     SHEET_URL = "https://docs.google.com/spreadsheets/d/15Qk8yHoRSkem1-Iz-iMcu7UzCI_h3OtZ_1x8gRGYFbY/edit?gid=0#gid=0" 
     
-    loader = TourDataLoader(SHEET_URL)
-    raw_data = loader.fetch_raw_data()
+#     loader = TourDataLoader(SHEET_URL)
+#     raw_data = loader.fetch_raw_data()
     
-    if raw_data:
-        docs = loader.prepare_rag_documents(raw_data)
-        print("\n--- TEST KẾT QUẢ DỮ LIỆU ĐÃ XỬ LÝ CHO RAG (1 Chunk đầu tiên) ---")
-        print(docs[0])
+#     if raw_data:
+#         docs = loader.prepare_rag_documents(raw_data)
+#         print("\n--- TEST KẾT QUẢ DỮ LIỆU ĐÃ XỬ LÝ CHO RAG (1 Chunk đầu tiên) ---")
+#         print(docs[0])
